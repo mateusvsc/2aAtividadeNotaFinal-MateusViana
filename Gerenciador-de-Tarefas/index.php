@@ -1,9 +1,7 @@
 <?php
 require 'database.php';
 
-// Consulta tarefas não concluídas
 $tarefas_abertas = $db->query("SELECT * FROM tarefas WHERE concluida = 0 ORDER BY vencimento ASC");
-// Consulta tarefas concluídas
 $tarefas_concluidas = $db->query("SELECT * FROM tarefas WHERE concluida = 1 ORDER BY vencimento DESC");
 ?>
 
@@ -321,7 +319,6 @@ $tarefas_concluidas = $db->query("SELECT * FROM tarefas WHERE concluida = 1 ORDE
     </div>
 
     <script>
-        // Validação do formulário
         document.getElementById('taskForm').addEventListener('submit', function(e) {
             const descricao = document.getElementById('descricao').value.trim();
             const vencimento = document.getElementById('vencimento').value;
@@ -346,7 +343,6 @@ $tarefas_concluidas = $db->query("SELECT * FROM tarefas WHERE concluida = 1 ORDE
             }
         });
         
-        // Confirmação de exclusão
         const deleteForms = document.querySelectorAll('.delete-form');
         deleteForms.forEach(form => {
             form.addEventListener('submit', function(e) {
@@ -356,7 +352,6 @@ $tarefas_concluidas = $db->query("SELECT * FROM tarefas WHERE concluida = 1 ORDE
             });
         });
         
-        // Efeitos visuais
         const taskCards = document.querySelectorAll('.task-card:not(.completed)');
         taskCards.forEach(card => {
             card.addEventListener('mouseenter', () => {

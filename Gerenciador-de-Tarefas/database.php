@@ -1,9 +1,7 @@
 <?php
-// database.php - Conexão com SQLite e criação da tabela
 
 $db = new SQLite3('tarefas.db');
 
-// Criar tabela se não existir
 $query = "CREATE TABLE IF NOT EXISTS tarefas (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     descricao TEXT NOT NULL,
